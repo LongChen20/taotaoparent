@@ -103,6 +103,10 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.taotao.entity.TbContentCategory" >
+--       主键返回keyProperty 映射类中的主键属性，resulttype属性类型，order 在执行之前还是之后返回
+    <selectKey keyProperty="id" resultType="Long" order="AFTER">
+      select LAST_INSERT_ID()
+    </selectKey>
     insert into tb_content_category (id, parent_id, name, 
       status, sort_order, is_parent, 
       created, updated)
@@ -111,6 +115,7 @@
       #{created,jdbcType=TIMESTAMP}, #{updated,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="com.taotao.entity.TbContentCategory" >
+
     insert into tb_content_category
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >

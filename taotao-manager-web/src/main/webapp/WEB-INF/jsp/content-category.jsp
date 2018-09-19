@@ -37,6 +37,7 @@ $(function(){
         			}
         		});
         	}else{
+        	    //更新节点名称
         		$.post("/content/category/update",{id:node.id,name:node.text});
         	}
         }

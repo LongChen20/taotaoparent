@@ -1,6 +1,7 @@
 package com.taotao.content.service;
 
 import com.taotao.common.EasyUITreeNode;
+import com.taotao.common.TaotaoResult;
 
 import java.util.List;
 
@@ -17,4 +18,22 @@ public interface ContentCategoryService {
      * @throws Exception
      */
     List<EasyUITreeNode> listContentCategory(Long categoryid) throws Exception;
+
+    /**
+     * 新增节点
+     * @param parentid
+     * @param name
+     * @return
+     * @throws Exception
+     */
+    TaotaoResult saveContentCategory(Long parentid ,String name) throws Exception;
+
+    /**
+     * 跟新节点名称
+     * @param id
+     * @param name
+     * @return
+     * @throws Exception
+     */
+    TaotaoResult updateNode(Long id,String name) throws Exception;
 }
